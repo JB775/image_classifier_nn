@@ -93,6 +93,31 @@ def load_data():
     test_set_x_orig = np.array(test_dataset["test_set_x"][:]) # test set features
     test_set_y_orig = np.array(test_dataset["test_set_y"][:]) # test set labels
 
+
+
+    # with open("output.txt", "a") as f:
+    #     print(test_set_x_orig, file=f)
+    #     print('exit', file=f)
+    # print(train_set_x_orig)
+    # print("y orig labels - train:")
+    # print(train_set_y_orig)
+
+    # print("y orig labels - test:")
+    # print(len(test_set_x_orig[0]))       # Individual Horizontal Row
+    # print(len(test_set_x_orig[0][0]))    # Individual Pixel within above Horizontal Row
+    # print(len(test_set_x_orig[0][0][0])) # Actual RGB Value of above Individual Pixel
+
+
+    # print("x orig features - test:")
+    # print(len(test_set_x_orig[0]))
+    # print(test_set_x_orig[0])
+
+
+
+
+    # print(test_set_x_orig)
+    # print(test_set_y_orig)
+
     classes = np.array(test_dataset["list_classes"][:]) # the list of classes
     
     train_set_y_orig = train_set_y_orig.reshape((1, train_set_y_orig.shape[0]))
@@ -395,8 +420,11 @@ def predict(X, y, parameters):
     """
     
     m = X.shape[1]
+    # print(X)
     n = len(parameters) // 2 # number of layers in the neural network
+    # print(y)
     p = np.zeros((1,m))
+    # print(parameters)
     
     # Forward propagation
     probas, caches = L_model_forward(X, parameters)
